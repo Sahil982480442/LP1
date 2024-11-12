@@ -4,8 +4,8 @@ from tkinter import messagebox, ttk
 class StudentInternshipApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Student and Internship Management System")
-        self.root.geometry("1000x400")
+        self.root.title("Student and Management System")
+        self.root.geometry("500x400")                                      
 
         # Student information frame
         self.frame = tk.Frame(self.root)

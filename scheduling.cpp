@@ -19,10 +19,13 @@ class algo{
     algo(process*q){
         this->p=q;
     }
+
     void fcfs(int n,int ct[],int tat[],int wt[]){
         int wait=0;
-        for(int i=0;i<n;i++){
-            if(wait<p[i].at){
+        for(int i=0;i<n;i++)
+        {
+            if(wait<p[i].at)
+            {
                 wait=p[i].at;
             }
             ct[i]=wait+p[i].bt;
@@ -65,7 +68,7 @@ class algo{
         int completed=0;
         int current_time=0;
         // lower the no higher the priority
-        while(n>completed){
+        while(completed < n){
             int highest_priority=INT_MAX;
             int highest_priority_index=-1;
             for(int i=0;i<n;i++){
@@ -84,55 +87,38 @@ class algo{
             }
             else{
                 current_time++;
-            }
-            
+            }            
         }
-
     }
 
 
-    void rr(int n,int ct[],int tat[],int wt[],int qunt){
-        int remaining=n;
-        int rem[n];
+    void rr(int n,int ct[],int tat[],int wt[],int qunt ){
+        int completed = 0;
         int current_time=0;
-        for(int i=0;i<n;i++){
-            rem[i]=p[i].bt;
-        }
-        while (remaining>0){
-            int done=1;
+        while(completed < n){
+            int done=true;
             for(int i=0;i<n;i++){
-                if(p[i].at<=current_time&&rem[i]>0){
-                    done=0;
-                    if(qunt<rem[i]){
+                if(p[i].at<=current_time&&p[i].remaining_bt>0){
+                    done=false;
+                    if(p[i].remaining_bt>qunt){
                         current_time+=qunt;
-                        rem[i]-=qunt;
+                        p[i].remaining_bt-=qunt;
                     }
                     else{
-                        current_time=rem[i];
-                        remaining--;
-                        rem[i]=0;
+                        completed++;
+                        current_time+=p[i].remaining_bt;
+                        p[i].remaining_bt=0;
                         ct[i]=current_time;
                         tat[i]=ct[i]-p[i].at;
                         wt[i]=tat[i]-p[i].bt;
                     }
-
                 }
             }
             if(done){
                 current_time++;
             }
-            
         }
-        
-
-
     }
-
-
-
-
-
-
 
 // n,ct,tat,wt
     void print(int n,int ct[],int tat[],int wt[]){
@@ -141,24 +127,7 @@ class algo{
             cout<<p[i].pid<<"\t"<<p[i].at<<"\t"<<p[i].bt<<"\t"<<ct[i]<<"\t"<<tat[i]<<"\t"<<wt[i]<<endl;
         }
     }
-
-
-
-
-
-
-
-
-
 };
-
-
-
-
-
-
-
-
 
 int main(){
 
@@ -183,34 +152,19 @@ int main(){
         p[i].remaining_bt=p[i].bt;
     }
 
-    for(int i=0;i<n;i++){
-        cout<<"Enter Priprity : ";
-        cin>>p[i].priority;
-    }
-
-
-
+    // for(int i=0;i<n;i++){
+    //     cout<<"Enter Priprity : ";
+    //     cin>>p[i].priority;
+    // }
     // a.fcfs(n,ct,tat,wt);
     // a.sjfpre(n,ct,tat,wt);
-    a.prioritynon(n,ct,tat,wt);
+    a.rr(n,ct,tat,wt,2);
 
     cout<<endl;
     a.print(n,ct,tat,wt);
 
-
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 // 4  1 0 2  2 1 2  3 5 3  4 6 4
 
