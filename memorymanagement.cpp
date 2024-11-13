@@ -34,6 +34,7 @@ void bestFit(vector<int> blockSizes,vector<int> processSizes){
     }
 }
 
+
 void worstFit(vector<int> blockSizes,vector<int> processSizes){
     int m = blockSizes.size();
     int n = processSizes.size();

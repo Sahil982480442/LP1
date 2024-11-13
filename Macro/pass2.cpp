@@ -107,7 +107,7 @@ int main(){
                  }
             }
             
-            for(int i = mdtp - 1; i < mdt.size() && mdt[i] != "MEND"; i++)          // MEND
+            for(int i = mdtp - 1; i < mdt.size() && mdt[i] != "MEND"; i++)         ///////////////////// MEND
             {
                 stringstream ss(mdt[i]);
                 string token;

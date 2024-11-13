@@ -6,10 +6,10 @@ int main()
     ifstream ic("ic.txt"), st("symbol_Table.txt"), lt("Literal_table.txt");
     ofstream fout("output.txt");
 
-    // if (!ic.is_open() || !st.is_open() || !lt.is_open() || !fout.is_open()) {
-    //     cerr << "Error opening one or more files!" << endl;
-    //     return 1;
-    // }
+    if (!ic.is_open() || !st.is_open() || !lt.is_open() || !fout.is_open()) {
+        cerr << "Error opening one or more files!" << endl;
+        return 1;
+    }
 
     unordered_map<int, string> symbolTable;
     unordered_map<int, string> literalTable;

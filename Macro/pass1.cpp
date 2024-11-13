@@ -29,7 +29,7 @@ int main() {
         return 1;
     }
 
-    map<string, int> pntab;                 //////// PN TAB
+    map<string, int> pntab;                   //////////string map to int
     string line;
     string macroname;
     int mdtp = 1, kpdtp = 0, paramNo = 1, pp = 0, kp = 0, flag = 0;

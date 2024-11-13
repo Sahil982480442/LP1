@@ -2,7 +2,6 @@
 #include<climits>
 using namespace std;
 
-
 class process{
     public:
     int pid;
@@ -10,7 +9,6 @@ class process{
     int at;
     int priority;
     int remaining_bt;
-
 };
 
 class algo{

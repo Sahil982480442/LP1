@@ -155,7 +155,7 @@ int main()
     cout << "\n -- ASSEMBLER PASS-1 OUTPUT --" << endl;
     cout << "\n <LABEL\tOPCODE\tOP1\tOP2\tLC\tINTERMEDIATE CODE>" << endl;
 
-    while (!fin.eof())                                              /////////////////////////////// (!fin.eof())
+    while (!fin.eof())                                              ////////////////////////////// (!fin.eof())
     {
         fin >> label >> opcode >> op1 >> op2; 
         int id;
